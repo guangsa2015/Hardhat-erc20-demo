@@ -1,0 +1,25 @@
+{
+  "name": "hardhat-erc20-demo",
+  "version": "1.0.0",
+  "description": "Hardhat ERC-20 demo",
+  "scripts": {
+    "start": "npx hardhat node",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "test": "npx hardhat test"
+  },
+  "dependencies": {
+    "hardhat": "^2.22.10"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "hardhat-abi-exporter": "^2.11.0"
+  },
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
