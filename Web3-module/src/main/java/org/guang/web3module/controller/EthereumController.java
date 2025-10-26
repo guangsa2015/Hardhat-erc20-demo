@@ -1,6 +1,8 @@
 package org.guang.web3module.controller;
 
 import org.guang.web3module.service.EthereumService;
+import org.guang.web3module.service.WorldcoinService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class EthereumController {
-    private final EthereumService ethereumService;
 
-    public EthereumController(EthereumService ethereumService) {
-        this.ethereumService = ethereumService;
-    }
+    @Autowired
+    private EthereumService ethereumService;
 
+    @Autowired
+    private WorldcoinService worldcoinService;
     @GetMapping("/token-name")
     public ResponseEntity<String> getTokenName() {
         try {
@@ -75,4 +77,13 @@ public class EthereumController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    @GetMapping("/wld")
+    public ResponseEntity<String> getBalanceWLD() {
+        try {
+            return ResponseEntity.ok(worldcoinService.getBalanceWLD());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
